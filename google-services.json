@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "281478247600",
+    "firebase_url": "https://invoices-244bd.firebaseio.com",
+    "project_id": "invoices-244bd",
+    "storage_bucket": "invoices-244bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281478247600:android:dcb913a968b233cd5ab775",
+        "android_client_info": {
+          "package_name": "com.invoices.by"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281478247600-mba63dtuelpv6adi3lamkj9v1a1vkt8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpH0lnl3Mm5YgBntXoHRmLK-38_lZFVWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281478247600-mba63dtuelpv6adi3lamkj9v1a1vkt8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
