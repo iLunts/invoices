@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { FirebaseX } from '@ionic-native/firebase-x/ngx';
+import { AuthService } from './services/auth.service';
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -63,12 +66,15 @@ export class AppComponent implements OnInit {
     //   icon: 'warning'
     // }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  user: any;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private firebaseX: FirebaseX,
+    private _auth: AuthService
   ) {
     this.initializeApp();
   }
@@ -77,6 +83,9 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.connectFirebase();
+      this.getUserInformation();
     });
   }
 
@@ -87,5 +96,43 @@ export class AppComponent implements OnInit {
         (page) => page.title.toLowerCase() === path.toLowerCase()
       );
     }
+  }
+
+  getUserInformation() {
+    this._auth.user$.subscribe((response: User) => {
+      this.user = response;
+      console.log('User: ', response);
+    });
+  }
+
+  connectFirebase() {
+    this.firebaseX
+      .getToken()
+      .then((token) => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+      .catch((error) => console.error('Error getting token', error));
+
+    // this.firebaseX
+    //   .onMessageReceived()
+    //   .subscribe((data) => console.log(`User opened a notification ${data}`));
+
+    // this.firebaseX
+    //   .onTokenRefresh()
+    //   .subscribe((token: string) => console.log(`Got a new token ${token}`));
+
+    // this.firebaseX
+    //   .authenticateUserWithGoogle(
+    //     'eyJhbGciOiJSUzI1NiIsImtpZCI6IjU1NGE3NTQ3Nzg1ODdjOTRjMTY3M2U4ZWEyNDQ2MTZjMGMwNDNjYmMiLCJ0eXAiOiJKV1QifQ'
+    //   )
+    //   .then((response: any) => {
+    //     console.log('Data AUTH: ', response);
+    //   });
+  }
+
+  logout() {
+    this._auth.logout();
+  }
+
+  login() {
+    this._auth.googleSignin();
   }
 }

@@ -2,9 +2,10 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Roman Luntsevich</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+        <!-- Auth -->
+        <ion-list *ngIf="user">
+          <ion-list-header>{{ user?.displayName }}</ion-list-header>
+          <ion-note>{{ user?.email }}</ion-note>
 
           <ion-menu-toggle
             auto-hide="false"
@@ -26,6 +27,19 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list *ngIf="!user">
+          <!-- <ion-list-header>Меню</ion-list-header> -->
+
+          <ion-item lines="none" (click)="login()">
+            <ion-icon
+              slot="start"
+              ios="bookmark-outline"
+              md="bookmark-sharp"
+            ></ion-icon>
+            <ion-label>Войти</ion-label>
+          </ion-item>
         </ion-list>
 
         <!-- <ion-list id="labels-list">
