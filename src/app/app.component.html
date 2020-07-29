@@ -3,7 +3,7 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <!-- Auth -->
-        <ion-list *ngIf="user">
+        <ion-list>
           <ion-list-header>{{ user?.displayName }}</ion-list-header>
           <ion-note>{{ user?.email }}</ion-note>
 
@@ -38,9 +38,7 @@
           </ion-item>
         </ion-list>
 
-        <ion-list *ngIf="!user">
-          <!-- <ion-list-header>Меню</ion-list-header> -->
-
+        <!-- <ion-list *ngIf="!user">
           <ion-item lines="none" (click)="login()">
             <ion-icon
               slot="start"
@@ -49,7 +47,7 @@
             ></ion-icon>
             <ion-label>Войти</ion-label>
           </ion-item>
-        </ion-list>
+        </ion-list> -->
 
         <!-- <ion-list id="labels-list">
           <ion-list-header>Labels</ion-list-header>
