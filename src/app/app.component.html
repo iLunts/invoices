@@ -27,6 +27,15 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
+          <ion-item lines="none" (click)="logout()">
+            <ion-icon
+              slot="start"
+              ios="bookmark-outline"
+              md="bookmark-sharp"
+            ></ion-icon>
+            <ion-label>Выйти</ion-label>
+          </ion-item>
         </ion-list>
 
         <ion-list *ngIf="!user">

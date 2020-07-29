@@ -38,7 +38,8 @@ export class AuthService {
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this._fa.signInWithPopup(provider);
-    localStorage.setItem('userId', credential.user.uid);
+    // localStorage.setItem('userId', credential.user.uid);
+    debugger;
     return this.updateUserData(credential.user);
   }
 
