@@ -11,6 +11,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { FirebaseX } from '@ionic-native/firebase-x/ngx';
+import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
+
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +29,9 @@ import { FirebaseX } from '@ionic-native/firebase-x/ngx';
     StatusBar,
     SplashScreen,
     FirebaseX,
+    PDFGenerator,
+    File,
+    FileOpener,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],

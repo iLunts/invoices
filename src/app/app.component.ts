@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Счета',
-      url: '/folder/invoices',
+      url: '/invoice',
       icon: 'mail',
     },
     {
