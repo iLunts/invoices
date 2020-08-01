@@ -1,3 +1,17 @@
-<p>
-  create works!
-</p>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Invoices list
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <p>
+    create works!
+  </p>
+
+  <!-- <ion-button (click)="generate()" type="button">Generate</ion-button> -->
+  <ion-button (click)="createPdf()" type="button">Create PDF</ion-button>
+  <ion-button (click)="downloadPdf()" type="button" [disabled]="!pdfObj">Download</ion-button>
+</ion-content>
