@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,12 +15,13 @@ import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { RequestInterceptor } from './interceptors/request.interceptor';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
@@ -32,7 +33,13 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
     PDFGenerator,
     File,
     FileOpener,
+    GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

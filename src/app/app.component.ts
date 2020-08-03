@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 import { AuthService } from './services/auth.service';
 import { User } from './models/user.model';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,12 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Контрагенты',
-      url: '/folder/customers',
+      url: '/contractors',
       icon: 'mail',
     },
     {
       title: 'Счета',
-      url: '/invoice',
+      url: '/invoices',
       icon: 'mail',
     },
     {
@@ -66,7 +67,6 @@ export class AppComponent implements OnInit {
     //   icon: 'warning'
     // }
   ];
-  // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   user: any;
 
   constructor(
@@ -74,7 +74,8 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private firebaseX: FirebaseX,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private _googlePlus: GooglePlus
   ) {
     this.initializeApp();
   }
@@ -133,6 +134,10 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this._auth.googleSignin();
+    // this._auth.googleSignin();
+    this._googlePlus
+      .login({})
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   }
 }

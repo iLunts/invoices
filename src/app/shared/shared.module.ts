@@ -22,6 +22,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    // ToastController,
   ],
   exports: [
     CommonModule,
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    // ToastController,
   ],
   entryComponents: [],
 })

@@ -1,5 +1,5 @@
 export class Contractor {
-  id: string;
+  _id: string;
   fullName: string;
   shortName: string;
   name: string;

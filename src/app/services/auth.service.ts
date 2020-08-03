@@ -72,6 +72,8 @@ export class AuthService {
   }
 
   getUserId() {
-    return this.userInformation.uid;
+    // TODO: Need change IMPORTANT
+    return 'N3DdimT8T7ZapyqzPb8vcJDChM62';
+    // return this.userInformation.uid || 'N3DdimT8T7ZapyqzPb8vcJDChM62';
   }
 }

@@ -12,8 +12,12 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'invoice',
+    path: 'invoices',
     loadChildren: () => import('./pages/invoice/invoice.module').then( m => m.InvoiceModule)
+  },
+  {
+    path: 'contractors',
+    loadChildren: () => import('./pages/contractor/contractor.module').then( m => m.ContractorModule)
   }
 ];
 

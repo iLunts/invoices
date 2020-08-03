@@ -1,17 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Invoices list
-    </ion-title>
-  </ion-navbar>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create a new invoice</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <p>
-    create works!
-  </p>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Счета создание</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <!-- <ion-button (click)="generate()" type="button">Generate</ion-button> -->
   <ion-button (click)="createPdf()" type="button">Create PDF</ion-button>
-  <ion-button (click)="downloadPdf()" type="button" [disabled]="!pdfObj">Download</ion-button>
+  <ion-button (click)="downloadPdf()" type="button" [disabled]="!pdfObj"
+    >Download</ion-button
+  >
 </ion-content>
