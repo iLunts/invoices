@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 *ngIf="_auth.user | async">
+    Welcome {{ (_auth.user | async)?.email }}!
+  </h1>
+
+  <div *ngIf="!(_auth.user | async)">
+    <ion-input
+      type="text"
+      [(ngModel)]="email"
+      placeholder="Enter email"
+    ></ion-input>
+    <ion-input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Enter password"
+    ></ion-input>
+
+    <ion-button (click)="signup()" [disabled]="!email || !password">
+      Signup
+    </ion-button>
+
+    <ion-button (click)="login()" [disabled]="!email || !password">
+      Login
+    </ion-button>
+  </div>
+
+  <ion-button (click)="logout()" *ngIf="_auth.user | async">
+    Logout
+  </ion-button>
+
+  <h1>Email: {{email}} and Password: {{password}}</h1>
+</ion-content>

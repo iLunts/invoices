@@ -6,6 +6,16 @@ export class User {
   displayName?: string;
   photoURL?: string;
   phoneNumber?: string;
+  refreshToken: string;
+
+  // displayName?: string;
+  // email?: string;
+  // expiresIn?: string;
+  // idToken: string;
+  // kind?: string;
+  // localId?: string;
+  // refreshToken: string;
+  // registered: boolean;
 
   // constructor(
   //   UNP: string,

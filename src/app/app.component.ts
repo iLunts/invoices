@@ -133,11 +133,11 @@ export class AppComponent implements OnInit {
     this._auth.logout();
   }
 
-  login() {
-    // this._auth.googleSignin();
-    this._googlePlus
-      .login({})
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
-  }
+  // login() {
+  //   this._auth.googleSignin();
+  //   this._googlePlus
+  //     .login({})
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.error(err));
+  // }
 }

@@ -3,7 +3,7 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <!-- Auth -->
-        <ion-list>
+        <ion-list *ngIf="user">
           <ion-list-header>{{ user?.displayName }}</ion-list-header>
           <ion-note>{{ user?.email }}</ion-note>
 
@@ -39,7 +39,11 @@
         </ion-list>
 
         <ion-list *ngIf="!user">
-          <ion-item lines="none" (click)="login()">
+          <ion-item
+            lines="none"
+            [routerLink]="['/auth/login']"
+            routerLinkActive="active"
+          >
             <ion-icon
               slot="start"
               ios="bookmark-outline"
